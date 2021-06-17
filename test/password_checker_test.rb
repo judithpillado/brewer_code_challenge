@@ -48,8 +48,19 @@ class PasswordCheckerTest < Minitest::Test
     @pc = PasswordChecker.new(pw_hash)
   end
 
-  def test_return_valid_password_count
-    assert_equal 21, @pc.count_valid
+  def test_letter_in_key
+    assert_equal "p", @pc.letter_in("6-9 p")
   end
 
+  def test_minimum_number 
+    assert_equal 12, @pc.minimum("12-15 h")
+  end
+
+  def test_maximum_number
+    assert_equal 6, @pc.maximum("5-6 t")
+  end
+
+  # def test_return_valid_password_count
+  #   assert_equal 21, @pc.count_valid
+  # end
 end
